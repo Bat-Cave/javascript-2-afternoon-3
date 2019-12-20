@@ -125,8 +125,14 @@ contains(names, 'Colt', function(result){
 */
 
 function uniq(arr, cb){
-  var newArr = Array.from(new Set(arr));
-  cb(newArr);
+  for(let i = 0; i < arr.length; i++){
+    for(let j = arr.length - 1; j > 0; j--){
+      if(arr[i] === arr[j] && i !== j){
+        arr.splice(j, 1);
+      }
+    }
+  }
+  cb(arr);
 }
 
 // Do not edit the code below.
